@@ -137,7 +137,7 @@ def plot_trendline(days=100):
     plt.plot([days-1, (days*2)-1], [total[-1], val], 'ks-', markersize=12, linewidth=5)
     return val
     
-def run_all(stocks = ['MSFT','AAPL','GE','TSLA'], shares = [1,34,51,213], days=100):
+def run_all(stocks = ['CRM','V','GE','IBM'], shares = [1,34,51,213], days=100):
     global txt
     total_volume(stocks, shares)
     plot_function(days)
@@ -176,8 +176,9 @@ def run_all(stocks = ['MSFT','AAPL','GE','TSLA'], shares = [1,34,51,213], days=1
 #    print((plot_trendline()-snp500_eval())/((plot_trendline()+snp500_eval())/2))
         
 run_all()
-plt.figure(1)     
-plt.legend(txt)
+plt.figure(1, dpi = 5000)     
+plt.figtext(.02,.02,txt)
+
 plt.savefig("graph.png")
 plt.figure(2)
 plt.savefig("histo.png")
