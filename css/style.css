@@ -23,11 +23,20 @@ body,
 
 }
 .imageMath3{
-  width: 200%;
+  width: 300%;
   
 
 }
 .column{
+  float:middle;
+
+  width:24%;
+  margin: 20px 5%;
+  height: 80%;
+
+  background-color:transparent;
+}
+.column4{
   float:middle;
 
   width:24%;
@@ -44,7 +53,7 @@ body,
   background-color:transparent;
 }
 .column3{
-
+align-items: center;
   width:24%;
   margin: 30px 20%;
   height: 80%;
