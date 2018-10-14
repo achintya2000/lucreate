@@ -7,7 +7,7 @@ list_last_point = []
 test = []
 total = []
 
-def total_volume(num_stocks):
+def total_volume(num_stocks): #requires input for number of stocks this function is expected to process
     global test
     global total
     year = int(dt.datetime.today().strftime('%Y'))
@@ -16,8 +16,8 @@ def total_volume(num_stocks):
     start = dt.datetime(2018,1,1)
     end = dt.datetime(year, month, day)
     for k in range(num_stocks):
-        a = input("Enter your stock")
-        b = int(input("Enter volume of stock"))
+        a = input("Enter your stock") #in its current form, this funciton prompts user in the IPython console for ticker
+        b = int(input("Enter number of shares")) #likewise it prompts user in IPython console for number of shares
         df = web.DataReader(a, 'yahoo', start, end)
         df1 = df[['Close']]
         data = df1.values
@@ -27,7 +27,7 @@ def total_volume(num_stocks):
     total = [float(x) for x in total]
     
 
-def predict_price(days=100):
+def predict_price(days=100): #this function runs the equation and generates the prediciton lines
     global list_last_point
     rate_of_change = []
     
@@ -57,7 +57,7 @@ def predict_price(days=100):
         S0 = S1    
     return future_prices
 
-def plot_function(days=100):
+def plot_function(days=100): #this function plots the prediction lines onto a graph
     plt.figure(1)
     plt.clf()
     for k in range(300):
@@ -68,17 +68,17 @@ def plot_function(days=100):
 #    plt.clf()
 #    plt.plot([0]*len(list_last_point), list_last_point, "ks")
 
-def plot_histogram():
+def plot_histogram(): #generates a histogram based on the predicted final points
     plt.figure(3)
     plt.clf()
     plt.hist(list_last_point, 11)
     
-def plot_trendline(days=100):
+def plot_trendline(days=100): #calculates and plots the trendline on the plot_function graph
     val = np.mean(list_last_point)
     plt.figure(1)
     plt.plot([days-1, (days*2)-1], [total[-1], val], 'ks-', markersize=12, linewidth=5)
     
-def run_all(num_stocks, days):
+def run_all(num_stocks, days): #a function to run most of the functions above 
     total_volume(num_stocks)
     plot_function(days)
 #    plot_trend()
