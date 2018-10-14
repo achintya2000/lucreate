@@ -74,31 +74,33 @@ body,
 /* Contact */
 
 .contact-form input[type="text"] {
-    width: 40%;
+    width: 20%;
 }
-
+.contact-form{
+padding-top: 60px;
+}
 .contact-form input, .contact-form textarea, .contact-form select {
     background: transparent;
     outline: none;
     font-family: "Quicksand", sans-serif;
     -webkit-appearance: none;
     color: inherit;
-    border-width: 2px;
+    border-width: 1px;
     border-style: solid;
-    padding: 9px 20px;
+    padding: 9px 10px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     height: auto;
     font-size: 18px;
     letter-spacing: 1px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     position: relative;
 }
-
+  
 .contact-form textarea {
     float: left;
     resize: none;
