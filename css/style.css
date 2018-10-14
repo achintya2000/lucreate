@@ -107,6 +107,7 @@ body,
     margin-bottom: 0;
 }
 
+
 .contact-form .input-error {
     border-color: #ed5555;
 }
@@ -115,9 +116,6 @@ body,
     font-size: 16px;
 }
 
-.contact-form .btn {
-    padding: 12px 15px;
-}
 
 .contact-form input::-webkit-input-placeholder,
 .contact-form textarea::-webkit-input-placeholder {
