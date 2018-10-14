@@ -177,7 +177,7 @@ def run_all(stocks = ['CRM','V','GE','IBM'], shares = [1,34,51,213], days=100):
         
 run_all()
 ax = plt.subplot()
-plt.figure(1, dpi = 5000)     
+plt.figure(1, dpi = 1000)     
 plt.text(0.5,0.9, txt, ha = 'center', va = 'center', transform = ax.transAxes, fontsize = 15)
 
 plt.savefig("graph.png")
