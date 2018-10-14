@@ -130,14 +130,16 @@ def plot_histogram():
     plt.figure(2)
     plt.clf()
     plt.hist(list_last_point, 11)
-    
+    plt.axvline(np.mean(list_last_point), color = 'k', linestyle = 'dashed', label = 'mean')
+    plt.axvline(np.median(list_last_point), color = 'r', label = 'median')
+    plt.legend(fontsize = 20)
 def plot_trendline(days=100):
     val = np.mean(list_last_point)
     plt.figure(1)
     plt.plot([days-1, (days*2)-1], [total[-1], val], 'ks-', markersize=12, linewidth=5)
     return val
     
-def run_all(stocks = ['CRM','V','GE','IBM'], shares = [1,34,51,213], days=100):
+def run_all(stocks = ['AMZN'], shares = [1], days=100):
     global txt
     total_volume(stocks, shares)
     plot_function(days)
@@ -150,7 +152,9 @@ def run_all(stocks = ['CRM','V','GE','IBM'], shares = [1,34,51,213], days=100):
     plt.title("Portfolio" + " over time", fontsize=26)
     plt.xlabel("Days", fontsize=20)
     plt.ylabel("Value of Portfolio ($)", fontsize=20)
-
+    plt.figure(2)
+    plt.title("Distribution of Predicted Performance", fontsize = 26)
+    plt.ylabel("Predicted End Values ($)", fontsize = 20)
     a= plot_trendline()-total[-1]
 #    print(a)
     a_avg = (plot_trendline()+total[-1])/2
