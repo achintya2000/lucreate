@@ -72,7 +72,7 @@ align-items: center;
 
 }
 .column7{
-align-items: center;
+float: left;
   width:15%;
   margin: 30px 20%;
   height: 80%;
