@@ -16,7 +16,7 @@ body,
   position: relative;
 }
 
-.slide {
+.slide{
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,12 +24,12 @@ body,
 }
 
 .slide1 {
-  background-image: url("C:/Users/sskan/OneDrive/Documents/GitHub/wealthgen/images/test.png");
+  background-image: url("C:/Users/sskan/OneDrive/Documents/GitHub/wealthgen/images/test2.png");
 
 
 }
 .slide2 {
- 
+ 99
 }
 .slide3 {
 
@@ -41,9 +41,9 @@ body,
 .slide-content {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+/*  justify-content: center;*/
 /*  align-items: center;*/
-  text-align: center;
+/*  text-align: center;*/
 }
 
 .slide-content span {
