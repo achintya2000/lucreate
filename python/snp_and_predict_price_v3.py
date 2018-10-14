@@ -13,7 +13,7 @@ import numpy as np
 list_last_point = []
 test = []
 total = []
-
+txt = ''
 def total_volume(stocks, shares):
     global test
     global total
@@ -127,7 +127,7 @@ def plot_snp(days=100):
 #    plt.plot([0]*len(list_last_point), list_last_point, "ks")
 
 def plot_histogram():
-    plt.figure(3)
+    plt.figure(2)
     plt.clf()
     plt.hist(list_last_point, 11)
     
@@ -138,6 +138,7 @@ def plot_trendline(days=100):
     return val
     
 def run_all(stocks = ['MSFT','AAPL','GE','TSLA'], shares = [1,34,51,213], days=100):
+    global txt
     total_volume(stocks, shares)
     plot_function(days)
     snp500_init()
@@ -162,14 +163,21 @@ def run_all(stocks = ['MSFT','AAPL','GE','TSLA'], shares = [1,34,51,213], days=1
     snp_percent = float(b/b_avg)
     diff = (port_percent - snp_percent)*100
     if (port_percent > snp_percent):
-        print("Your portfolio is outperforming the SNP500 by " + str(diff) + "%")
+        txt = "Your portfolio is outperforming the SNP500 by " + str(diff) + "%"
     elif (port_percent < snp_percent):
-        print("Your portfolio is underperforming compared to the SNP500 by " + str(abs(diff)) + "%")
+        txt = "Your portfolio is underperforming compared to the SNP500 by " + str(abs(diff)) + "%"
     else:
-        print("Your portfolio is breaking even with the SNP500 with an average predicted return of " + str(snp_percent*100) + "%")
+        txt = "Your portfolio is breaking even with the SNP500 with an average predicted return of " + str(snp_percent*100) + "%"
 ##    print(plot_trendline())
 ##    print(snp500_eval())
 ##    print(plot_trendline()-snp500_eval())
 ##    print((plot_trendline()+snp500_eval())/2)
 #    
 #    print((plot_trendline()-snp500_eval())/((plot_trendline()+snp500_eval())/2))
+        
+run_all()
+plt.figure(1)     
+plt.legend(txt)
+plt.savefig("graph.png")
+plt.figure(2)
+plt.savefig("histo.png")
