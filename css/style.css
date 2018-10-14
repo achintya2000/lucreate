@@ -60,6 +60,9 @@ align-items: center;
   background-color:transparent; 
 
 }
+.base{
+  margin-left: 0px;
+}
 .wrap {
   position: relative;
 }
