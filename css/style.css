@@ -17,7 +17,8 @@ body,
 
 }
 .imageMath2{
-  width: 180%;
+  width: 200%;
+  height: 100%;
   
 
 }
@@ -33,14 +34,14 @@ body,
   margin: 20px 5%;
   height: 80%;
 
-  background-color:transparent; ;
+  background-color:transparent;
 }
 .column2{
   float:middle;
   width:24%;
   margin: 20px 4%;
   height: 80%;
-  background-color:transparent; ;
+  background-color:transparent;
 }
 .column3{
 
