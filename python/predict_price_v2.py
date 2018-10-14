@@ -4,24 +4,9 @@ import pandas_datareader.data as web
 import numpy as np    
 
 list_last_point = []
-
-#def set_ticker(ticker, shares):
-#    global closing_set
-#    start = dt.datetime(2018, 1, 1)
-#    
-#    end_year = int(dt.datetime.today().strftime('%Y'))
-#    end_month = int(dt.datetime.today().strftime('%m'))
-#    end_day = int(dt.datetime.today().strftime('%d'))
-#    
-#    end = dt.datetime(end_year, end_month, end_day)
-#    
-#    df = web.DataReader(ticker, 'yahoo', start, end)
-#    data_set = df[['Close']]
-#    closing_set = data_set.values
-#    closing_set = [x*shares for x in closing_set]
-
 test = []
 total = []
+
 def total_volume(num_stocks):
     global test
     global total
@@ -42,7 +27,7 @@ def total_volume(num_stocks):
     total = [float(x) for x in total]
     
 
-def predict_price(days=1):
+def predict_price(days=100):
     global list_last_point
     rate_of_change = []
     
@@ -72,34 +57,34 @@ def predict_price(days=1):
         S0 = S1    
     return future_prices
 
-def plot_function(days=1):
+def plot_function(days=100):
     plt.figure(1)
     plt.clf()
     for k in range(300):
         plt.plot(predict_price(days))
     
-def plot_trend():
-    plt.figure(2)
-    plt.clf()
-    plt.plot([0]*len(list_last_point), list_last_point, "ks")
+#def plot_trend():
+#    plt.figure(2)
+#    plt.clf()
+#    plt.plot([0]*len(list_last_point), list_last_point, "ks")
 
 def plot_histogram():
     plt.figure(3)
     plt.clf()
     plt.hist(list_last_point, 11)
     
-def plot_trendline(days=1):
+def plot_trendline(days=100):
     val = np.mean(list_last_point)
     plt.figure(1)
     plt.plot([days-1, (days*2)-1], [total[-1], val], 'ks-', markersize=12, linewidth=5)
     
-#def run_all(ticker, days, shares):
-#    set_ticker(ticker, shares)
-#    plot_function(days)
+def run_all(num_stocks, days):
+    total_volume(num_stocks)
+    plot_function(days)
 #    plot_trend()
-#    plot_histogram()
-#    plot_trendline(days)
-#    plt.figure(1)
-#    plt.title("Stock: " + ticker + " over time", fontsize=26)
-#    plt.xlabel("Days", fontsize=20)
-#    plt.ylabel("Dollars ($)", fontsize=20)
+    plot_histogram()
+    plot_trendline(days)
+    plt.figure(1)
+    plt.title("Portfolio" + " over time", fontsize=26)
+    plt.xlabel("Days", fontsize=20)
+    plt.ylabel("Dollars ($)", fontsize=20)
