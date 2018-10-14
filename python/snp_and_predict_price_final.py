@@ -14,6 +14,7 @@ list_last_point = []
 test = []
 total = []
 txt = ''
+
 def total_volume(stocks, shares):
     global test
     global total
@@ -22,12 +23,11 @@ def total_volume(stocks, shares):
     month = int(dt.datetime.today().strftime('%m'))
     start = dt.datetime(2018,1,1)
     end = dt.datetime(year, month, day)
-    for k in stocks:
-        df = web.DataReader(k, 'yahoo', start, end)
+    for k in range(len(stocks)):
+        df = web.DataReader(stocks[k], 'yahoo', start, end)
         df1 = df[['Close']]
         data = df1.values
-        for j in shares:
-            data = [x*j for x in data]
+        data = [x * shares[k] for x in data]
         test.append(data)
     total = [sum(x) for x in zip(*test)]
     total = [float(x) for x in total]
@@ -139,7 +139,7 @@ def plot_trendline(days=100):
     plt.plot([days-1, (days*2)-1], [total[-1], val], 'ks-', markersize=12, linewidth=5)
     return val
     
-def run_all(stocks = ['AMZN'], shares = [1], days=100):
+def run_all(stocks = ['AMZN', 'MSFT', 'CRM', 'MU', 'COF', 'IBM', 'V', 'BABA', 'F'], shares = [100,50, 10, 200, 50, 10, 20, 30, 10], days=100):
     global txt
     total_volume(stocks, shares)
     plot_function(days)
@@ -187,3 +187,5 @@ plt.text(0.5,0.9, txt, ha = 'center', va = 'center', transform = ax.transAxes, f
 plt.savefig("graph.png")
 plt.figure(2)
 plt.savefig("histo.png")
+#, 'MSFT', 'CRM', 'MU', 'COF', 'IBM', 'V', 'BABA', 'F'
+#,50, 10, 200, 50, 10, 20, 30, 10
