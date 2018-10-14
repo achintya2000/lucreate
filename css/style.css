@@ -6,9 +6,9 @@ body,
 .slide-content {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Quicksand, Helvetica, sans-serif;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   overflow-x: hidden;
 }
 
@@ -17,35 +17,40 @@ body,
 }
 
 .slide {
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+
 }
 
 .slide1 {
-  background-image: url("https://i.imgur.com/aussIrs.png");
+  background-image: url("C:/Users/sskan/OneDrive/Documents/GitHub/wealthgen/images/test.png");
+
+
 }
 .slide2 {
-  background-image: url("https://i.imgur.com/AG9wsQx.png");
+ 
 }
 .slide3 {
-  background-image: url("https://i.imgur.com/aussIrs.png");
+
 }
 .slide4 {
-  background-image: url("https://i.imgur.com/AG9wsQx.png");
+
 }
 
 .slide-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+/*  align-items: center;*/
   text-align: center;
 }
 
 .slide-content span {
+  padding-top: 20px;  
   font-size: 5rem;
-  color: #fff;
+  color: #000000;
+
 }
 
 .arrow {
@@ -60,14 +65,14 @@ body,
 
 #arrow-left {
   border-width: 30px 40px 30px 0;
-  border-color: transparent #fff transparent transparent;
+  border-color: transparent #000000 transparent transparent;
   left: 0;
   margin-left: 30px;
 }
 
 #arrow-right {
   border-width: 30px 0 30px 40px;
-  border-color: transparent transparent transparent #fff;
+  border-color: transparent transparent transparent #000000;
   right: 0;
   margin-right: 30px;
 }
