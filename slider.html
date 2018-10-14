@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	body{
+		background-image:url("images/redbackground.png");
+	}
+</style> 
+	<title>Image Slider</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div id = "base"
+<figure>
+<img src="images/LucreateSlide1.png">
+</figure>
+</div>
+<div class="wrap">
+  <div id="arrow-left" class="arrow"></div>
+  <div id="slider">
+    <div class="slide slide1">
+      <div class="slide-content">
+        <span>Image One</span>
+      </div>
+    </div>
+    <div class="slide slide2">
+      <div class="slide-content">
+        <span>Image Two</span>
+      </div>
+    </div>
+    <div class="slide slide3">
+      <div class="slide-content">
+        <span>Image Three</span>
+      </div>
+      </div>
+    <div class="slide slide4">
+      <div class="slide-content">
+        <span>Image Four</span>
+      </div>
+    
+    </div>
+  </div>
+  <div id="arrow-right" class="arrow"></div>
+</div>
+
+<form id="contact-form" class="contact-form">
+					<div class="row">
+						<div class="col-md-12 animated">
+							<input type="text" id="stock1" name="stock1" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share1" name="share1" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock2" id="stock2" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share2" name="share2" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock3" id="stock3" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share3" name="share3" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock4" id="stock4" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share4" name="share4" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock5" id="stock5" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share5" name="share5" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock6" id="stock6" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share6" name="share6" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock7" id="stock7" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share7" name="share7" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock8" id="stock8" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share8" name="share8" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+						<div class="col-lg-4 col-md-6 col-md-12 animated">
+							<input type="text" name="stock9" id="stock9" placeholder="Stock Symbol" class="contact-form-subject required">
+							<input type="text" id="share10" name="share10" placeholder="Amount of shares" class="contact-form-subject required">
+						</div>
+
+					</div>
+</form>
+
+<script type="text/javascript">
+	let sliderImages = document.querySelectorAll(".slide"),
+  arrowLeft = document.querySelector("#arrow-left"),
+  arrowRight = document.querySelector("#arrow-right"),
+  current = 0;
+
+// Clear all images
+function reset() {
+  for (let i = 0; i < sliderImages.length; i++) {
+    sliderImages[i].style.display = "none";
+  }
+}
+
+// Init slider
+function startSlide() {
+  reset();
+  sliderImages[0].style.display = "block";
+}
+
+// Show prev
+function slideLeft() {
+  reset();
+  sliderImages[current - 1].style.display = "block";
+  current--;
+}
+
+// Show next
+function slideRight() {
+  reset();
+  sliderImages[current + 1].style.display = "block";
+  current++;
+}
+
+// Left arrow click
+arrowLeft.addEventListener("click", function() {
+  if (current === 0) {
+    current = sliderImages.length;
+  }
+  slideLeft();
+});
+
+// Right arrow click
+arrowRight.addEventListener("click", function() {
+  if (current === sliderImages.length - 1) {
+    current = -1;
+  }
+  slideRight();
+});
+
+startSlide();
+
+</script>
+
+</body>
+</html>
